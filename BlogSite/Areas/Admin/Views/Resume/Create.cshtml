@@ -1,0 +1,45 @@
+﻿@model Entities.Models.Resume
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Özgeçmiş Ekleme Paneli</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Uzmanlik" class="control-label"></label>
+                <input asp-for="Uzmanlik" class="form-control" />
+                <span asp-validation-for="Uzmanlik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkRage" class="control-label"></label>
+                <input asp-for="WorkRage" class="form-control" />
+                <span asp-validation-for="WorkRage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Konum" class="control-label"></label>
+                <input asp-for="Konum" class="form-control" />
+                <span asp-validation-for="Konum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-outline-success" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<div>
+    <a class="btn btn-secondary" asp-action="Index">Listeye Geri Dön</a>
+</div>

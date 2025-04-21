@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Yazılım Mühendisi Şehmus Çakar Admin Paneli</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <link href="~/Img/images.png" rel="icon">
+    <link href="~/Img/images.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/AdminTema/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/AdminTema/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/AdminTema/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/AdminTema/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="~/AdminTema/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="~/AdminTema/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/AdminTema/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="~/AdminTema/assets/css/style.css" rel="stylesheet">
+
+
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center">
+                <img src="assets/img/logo.png" alt="">
+                <span class="d-none d-lg-block">Yönetim Paneli</span>
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div><!-- End Logo -->
+        @await Component.InvokeAsync("Profile")
+
+
+
+    </header><!-- End Header -->
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+        <ul class="sidebar-nav" id="sidebar-nav">
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#1" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Kayıtlı Olan Kullanıcılar</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/Admin/Profile/Index">
+                            <i class="bi bi-circle"></i><span>Liste & İşlemler</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+         
+         
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#3" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Hakkımda Alanı</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="3" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/Admin/About/Index">
+                            <i class="bi bi-circle"></i><span>Liste & İşlemler</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#4" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Yetenekler Alanı</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="4" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/Admin/Skill/Index">
+                            <i class="bi bi-circle"></i><span>Liste & İşlemler</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#5" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>CV'i Alanı</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="5" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/Admin/Resume/Index">
+                            <i class="bi bi-circle"></i><span>Liste & İşlemler</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#6" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Portföy Alanı</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="6" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/Admin/Portfolio/Index">
+                            <i class="bi bi-circle"></i><span>Liste & İşlemler</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#7" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Portföy Kategori Alanı</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="7" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/Admin/PortfolioCategory/Index">
+                            <i class="bi bi-circle"></i><span>Liste & İşlemler</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#8" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Hizmet Alanı</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id=8" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/Admin/Service/Index">
+                            <i class="bi bi-circle"></i><span>Liste & İşlemler</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-heading">Sayfalar</li>
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/Admin/Register/SignUp">
+                    <i class="bi bi-card-list"></i>
+                    <span>Kayıt Ol</span>
+                </a>
+            </li><!-- End Register Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/Admin/Login/SignIn">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    <span>Giriş Yap</span>
+                </a>
+            </li><!-- End Login Page Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/Admin/PasswordChange/ForgetPassword">
+                    <i class="bi bi-lock"></i>
+                    <span>Şifre Sıfırlama</span>
+                </a>
+            </li><!-- End Error 404 Page Nav -->
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/Home/Index">
+                    <i class="bi bi-file-earmark"></i>
+                    <span>Kullanıcı Arayüzü</span>
+                </a>
+            </li><!-- End Blank Page Nav -->
+
+        </ul>
+
+    </aside><!-- End Sidebar-->
+
+    <main id="main" class="main">
+        <div>
+            @RenderBody()
+        </div>
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/AdminTema/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="~/AdminTema/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/AdminTema/assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="~/AdminTema/assets/vendor/echarts/echarts.min.js"></script>
+    <script src="~/AdminTema/assets/vendor/quill/quill.min.js"></script>
+    <script src="~/AdminTema/assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="~/AdminTema/assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="~/AdminTema/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/AdminTema/assets/js/main.js"></script>
+</body>
+
+</html>

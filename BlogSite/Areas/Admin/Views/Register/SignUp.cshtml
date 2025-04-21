@@ -1,0 +1,141 @@
+﻿@model BlogSite.Areas.Admin.Models.AppUserRegisterModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Yazılım Mühendisi Şehmus Çakar Register Paneli</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/Img/images.png" rel="icon">
+    <link href="~/Img/images.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/AdminTema/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/AdminTema/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/AdminTema/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/AdminTema/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="~/AdminTema/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="~/AdminTema/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/AdminTema/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/AdminTema/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="pt-4 pb-2">
+                                        <h5 class="card-title text-center pb-0 fs-4">Bir hesap oluşturun</h5>
+                                        <p class="text-center small">Hesap oluşturmak için kişisel bilgilerinizi girin</p>
+                                    </div>
+                                    <form asp-action="SignUp" method="post">
+                                        <div class="col-12">
+                                            <label asp-for="Name" class="form-label">Adınız</label>
+                                            <input asp-for="Name" type="text" class="form-control" required>
+                                            <div class="invalid-feedback">Lütfen ad alanını doldurunuz!</div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label asp-for="LastName" class="form-label">Soyadınız</label>
+                                            <input asp-for="LastName" type="text" class="form-control" required>
+                                            <div class="invalid-feedback">Lütfen soyad alanını doldurunuz!</div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label asp-for="Email" class="form-label">Mailiniz</label>
+                                            <input asp-for="Email" type="email" class="form-control" required>
+                                            <div class="invalid-feedback">Lütfen E-Posta alanını doldurunuz!</div>
+                                        </div>
+                                        @if (ViewBag.ErrorMessage != null)
+                                        {
+                                            <div class="alert alert-danger">
+                                                @ViewBag.ErrorMessage
+                                            </div>
+                                        }
+                                        <div class="col-12">
+                                            <label asp-for="UserName" class="form-label">Kullanıcı Adı</label>
+                                            <div class="input-group has-validation">
+                                                <span class="input-group-text"></span>
+                                                <input asp-for="UserName" type="text" class="form-control" required>
+                                                <div class="invalid-feedback">
+                                                    @if (ViewBag.ErrorMessage != null)
+                                                    {
+                                                        @ViewBag.ErrorMessage
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>Lütfen kullanıcı adı alanını doldurunuz!</span>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label asp-for="Password" class="form-label">Şİfre</label>
+                                            <input asp-for="Password" type="password" class="form-control" required>
+                                            <div class="invalid-feedback">Lütfen şifre alanını doldurunuz!</div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label asp-for="ConfirmPassword" class="form-label">Şİfre Tekrar</label>
+                                            <input asp-for="ConfirmPassword" type="password" class="form-control" required>
+                                            <div class="invalid-feedback">Lütfen şifre tekrar alanını doldurunuz!</div>
+                                        </div>
+                                        <br />
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100" type="submit">Hesap Oluştur</button>
+                                        </div>
+                                        <div class="col-12">
+                                            <p class="small mb-0">Hesabınız var mı? <a href="/Admin/Login/SignIn" class="forget-password-link">Giriş Yapın</a></p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main><!-- End #main -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/AdminTema/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="~/AdminTema/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/AdminTema/assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="~/AdminTema/assets/vendor/echarts/echarts.min.js"></script>
+    <script src="~/AdminTema/assets/vendor/quill/quill.min.js"></script>
+    <script src="~/AdminTema/assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="~/AdminTema/assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="~/AdminTema/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/AdminTema/assets/js/main.js"></script>
+</body>
+</html>
+<style>
+    .forget-password-link {
+        text-decoration: none;
+        color: #007bff; /* Choose a color that fits your design */
+        font-weight: bold;
+    }
+
+    .link-icon {
+        margin-left: 5px;
+    }
+</style>

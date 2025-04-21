@@ -1,0 +1,64 @@
+﻿@model Entities.Models.Portfolio
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Portföy Güncelleme Paneli</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Image1" class="control-label"></label>
+                <input asp-for="Image1" class="form-control" type="file" />
+                <span asp-validation-for="Image1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image2" class="control-label"></label>
+                <input asp-for="Image2" class="form-control" type="file" />
+                <span asp-validation-for="Image2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image3" class="control-label"></label>
+                <input asp-for="Image3" class="form-control" type="file" />
+                <span asp-validation-for="Image3" class="text-danger"></span>
+            </div>
+      
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+        
+            <div class="form-group">
+                <label asp-for="ProjectUrl" class="control-label"></label>
+                <input asp-for="ProjectUrl" class="form-control" />
+                <span asp-validation-for="ProjectUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+        
+            <div class="form-group">
+                <label asp-for="PortfolioCategoryId" class="control-label"></label>
+                <select asp-for="PortfolioCategoryId" class="form-control" asp-items="ViewBag.PortfolioCategoryId"></select>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-outline-success" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+<div>
+    <a class="btn btn-secondary" asp-action="Index">Listeye Geri Dön</a>
+</div>
+

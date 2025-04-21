@@ -1,0 +1,8 @@
+﻿@model List<Entities.Models.PortfolioCategory>
+<ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+    <li data-filter="*" class="filter-active">Tüm Projeler</li>
+               @foreach (var item in Model)
+            {
+    <li data-filter=".@item.Name">@item.Name</li>
+            }
+</ul><!-- End Portfolio Filters -->

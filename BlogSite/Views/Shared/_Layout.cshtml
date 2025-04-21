@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Yazılım Mühendisi Şehmus Çakar</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- Favicons -->
+    <link href="~/Img/images.png" rel="icon">
+    <link href="~/Img/images.png" rel="apple-touch-icon">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="~/KullaniciTema/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/KullaniciTema/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/KullaniciTema/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/KullaniciTema/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/KullaniciTema/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Main CSS File -->
+    <link href="~/KullaniciTema/assets/css/main.css" rel="stylesheet">
+    <!-- =======================================================
+    * Template Name: DevFolio
+    * Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
+    * Updated: Aug 07 2024 with Bootstrap v5.3.3
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="logo d-flex align-items-center">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <h4 class="sitename">Blog Sitem</h4>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="/Home/Index/" class="active">Anasayfa<br></a></li>
+                    <li><a href="#about">Hakkımda</a></li>
+                    <li><a href="#portfolio">Portfoy</a></li>
+                    <li><a href="#services">Hizmetler</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section id="hero" class="hero section dark-background">
+            <img src="~/Img/Masausturesimi.jpg" alt="" data-aos="fade-in">
+            <div class="container d-flex flex-column align-items-center justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
+                <h2>Şehmus Çakar</h2>
+                <p><span class="typed" data-typed-items="Yazılım Mühendisi,Software Developer, Freelancer, Software Enginer, Yazılım Eğitmeni"></span></p>
+            </div>
+        </section><!-- /Hero Section -->
+        <!-- About Section -->
+        <!-- ======= About Section ======= -->
+        @await Component.InvokeAsync("About")
+        <!-- Resume Section -->
+        @await Component.InvokeAsync("Resume")
+  
+        <!-- Portfolio Section -->
+        @await Component.InvokeAsync("Portfolio")
+
+        <!-- Services Section -->
+        @await Component.InvokeAsync("Service")
+
+            <!-- Testimonials Section -->
+            <section id="testimonials" class="testimonials section accent-background">
+
+                <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
+
+                <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="swiper init-swiper">
+                        <script type="application/json" class="swiper-config">
+                            {
+                              "loop": true,
+                              "speed": 600,
+                              "autoplay": {
+                                "delay": 5000
+                              },
+                              "slidesPerView": "auto",
+                              "pagination": {
+                                "el": ".swiper-pagination",
+                                "type": "bullets",
+                                "clickable": true
+                              }
+                            }
+                        </script>
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <div class="testimonial-item">
+                                <img src="~/Img/Kadin.jpg" class="testimonial-img" alt="">
+                                    <h3>Meltem Hanım</h3>
+                                    <h4>Lise Öğrencimin Annesi</h4>
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <p>
+                                        <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>Kiymetli Sehmus hocam oğlumun yürüdüğü bu yolda ona rehber oldunuz bizlerle birlikte iletişim halinde ilerlediniz 👍 sabrınız hosgorunuz icin teşekkür ediyorum iyiki yollarımız kesişti 🙏</span>
+                                        <i class="bi bi-quote quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div><!-- End testimonial item -->
+
+                            <div class="swiper-slide">
+                                <div class="testimonial-item">
+                                <img src="~/Img/Kadin.jpg" class="testimonial-img" alt="">
+                                <h3>Ceren Hanım</h3>
+                                <h4>Bilgisiyar Mühendisi Öğrencisi</h4>
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <p>
+                                        <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>Şehmus hocamla işlediğimiz verimli dersler neticesinde bana çok zor gelen kodları anlamaya ve çok daha rahat bir şekilde pratiğe dökmeye başladım. Hocamın son derece anlaşılır ve her seviyeye hitap edebilen öğretici ders anlatımları sayesinde algoritmanın mantığını kavradım ve yazılım konusunda kendimi ilerlettim. Buna ek olarak yazılım, bilişim ve teknoloji gibi alanlarda gerek eğitim süreci için gerekse iş sahalarında nasıl gelişilebileceğine dair pek çok fikir ve bakış açısı edindim.</span>
+                                        <i class="bi bi-quote quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div><!-- End testimonial item -->
+
+                            <div class="swiper-slide">
+                                <div class="testimonial-item">
+                                <img src="~/Img/Erkek.png" class="testimonial-img" alt="">
+                                <h3>Burçin Bey</h3>
+                                    <h4>Yüksek Makine Mühendisi</h4>
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <p>
+                                        <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>Python seviyemin sıfıra yakın bir seviyeden büyük bir hızla ilerlemesini sağlayan Şehmuz hocaya çok teşekkürler. Esnek zamanlaması ve öğrenci odaklı eğitim seviye ve hız ayarlaması eğitimi oldukça kolaylaştırdı.</span>
+                                        <i class="bi bi-quote quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="~/Img/Erkek.png" class="testimonial-img" alt="">
+                                <h3>Ali Asaf Bey</h3>
+                                <h4>Yazılım Mühendisi</h4>
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span>Deneyimli bir yazılım geliştirici olarak, Masaüstü Yazılım Geliştirme, Web Yazılım Geliştirme ve Veritabanı Yönetimi konularında sağladığınız dersler gerçekten harika ve tatmin ediciydi! Öğrencilere sadece teorik bilgiyi değil, pratik deneyimi de aktarma şekliniz sayesinde, karmaşık konular bile anlaşılır hale geliyor. Anlatımınız net, destekleyici ve motive edici. Her seviyeden öğrenciye hitap edebilmeniz, bu alanda ne kadar yetkin olduğunuzun bir göstergesi. Kodlama dünyasında kendini geliştirmek isteyen herkes için sizi kesinlikle tavsiye edeceğim...</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="~/Img/Erkek.png" class="testimonial-img" alt="">
+                                <h3>Burhan Bey</h3>
+                                <h4>Yazılım Mühendisi</h4>
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    <span> Şehmus hocam ile .NET ve yazılım geliştirme alanında ders alma fırsatım oldu ve kesinlikle harika bir öğretmen! Kendisi alanında çok deneyimli ve özellikle .NET teknolojilerinde uzman. Karmaşık konuları anlaşılır bir şekilde açıklayabilme yeteneği, yazılım dünyasında yeni olanlar için büyük bir avantaj. Tecrübesi sayesinde sadece teoriyi değil, gerçek dünya uygulamalarını da öğretip, pratik bilgilere erişmemi sağladı. Derslerini oldukça planlı ve sistematik bir şekilde işliyor. Öğrencilerinin seviyesine göre esneklik göstererek, konuları adım adım derinlemesine anlatıyor. Her ders sonunda daha da motive olup, öğrendiklerimi hemen projelerde uygulama şansım oldu. Ayrıca, sürekli geri bildirim vererek gelişimimi takip etmesi ve merak ettiğim her soruyu sabırla yanıtlaması gerçekten takdir edilesi. .NET dışında da yazılım geliştirme süreçleri, mimari yapılar ve algoritmalar konusunda oldukça bilgi sahibi. Öğretme konusunda gösterdiği sabır ve detaylı anlatımı ile her seviyeden yazılımcı için çok değerli bir rehber olduğunu düşünüyorum. Eğer yazılım öğrenmek istiyorsanız, özellikle de .NET teknolojilerinde kendinizi geliştirmek istiyorsanız, kesinlikle Şehmus hoca ile çalışmanızı öneririm!</span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div><!-- End testimonial item -->
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+
+                </div>
+            </section><!-- /Testimonials Section -->
+            <!-- Contact Section -->
+            <section id="contact" class="contact section">
+
+                <!-- Section Title -->
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>İletişim</h2>
+                <p>Hayalinizdeki projeye bir adım daha yaklaşmak için bizimle iletişime geçin.</p>
+                </div><!-- End Section Title -->
+
+                <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="info-wrap" data-aos="fade-up" data-aos-delay="200">
+                        <div class="row gy-5">
+
+                            <div class="col-lg-4">
+                                <div class="info-item d-flex align-items-center">
+                                    <i class="bi bi-geo-alt flex-shrink-0"></i>
+                                    <div>
+                                        <h3>Ankara</h3>
+                                       
+                                    </div>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                            <div class="col-lg-4">
+                                <div class="info-item d-flex align-items-center">
+                                    <i class="bi bi-telephone flex-shrink-0"></i>
+                                    <div>
+                                        <h3>Telefon</h3>
+                                        <p>0552 561 76 72</p>
+                                    </div>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                            <div class="col-lg-4">
+                                <div class="info-item d-flex align-items-center">
+                                    <i class="bi bi-envelope flex-shrink-0"></i>
+                                    <div>
+                                        <h3>E-Posta</h3>
+                                        <p>sehmuscakar33@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div><!-- End Info Item -->
+
+                        </div>
+                    </div>
+
+                <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+                    <div class="row gy-4">
+
+                        <div class="col-md-6">
+                            <input type="text" name="name" class="form-control" placeholder="Adınız" required="">
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <input type="email" class="form-control" name="email" placeholder="E-posta Adresiniz" required="">
+                        </div>
+
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" name="subject" placeholder="Konu" required="">
+                        </div>
+
+                        <div class="col-md-12">
+                            <textarea class="form-control" name="message" rows="6" placeholder="Mesajınız" required=""></textarea>
+                        </div>
+
+                        <div class="col-md-12 text-center">
+                            <div class="loading">Yükleniyor...</div>
+                            <div class="error-message">Bir hata oluştu. Lütfen tekrar deneyin.</div>
+                            <div class="sent-message">Mesajınız gönderildi. Teşekkür ederiz!</div>
+
+                            <button type="submit">Mesaj Gönder</button>
+                        </div>
+
+                    </div>
+                </form><!-- İletişim Formu Sonu -->
+
+
+                </div>
+
+            </section><!-- /Contact Section -->
+    </main>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer id="footer" class="footer accent-background">
+
+        <div class="container">
+            <div class="copyright text-center ">
+                <p>© <span id="year"></span> <strong class="px-1 sitename">Şehmus Çakar</strong> - Tüm Hakları Saklıdır</p>
+
+                <script>
+                    document.getElementById("year").textContent = new Date().getFullYear();
+                </script>
+
+            </div>
+            <div class="social-links d-flex justify-content-center">
+                <a href="https://github.com/sehmuscakar?tab=repositories"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/%C5%9Fehmus-%C3%A7-457451226/"><i class="bi bi-linkedin"></i></a>
+                <a href="/Home/Index/"><i class="bi bi-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="~/KullaniciTema/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/KullaniciTema/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/KullaniciTema/assets/vendor/aos/aos.js"></script>
+    <script src="~/KullaniciTema/assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="~/KullaniciTema/assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="~/KullaniciTema/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="~/KullaniciTema/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/KullaniciTema/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/KullaniciTema/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/KullaniciTema/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="~/KullaniciTema/assets/js/main.js"></script>
+
+</body>
+
+</html>

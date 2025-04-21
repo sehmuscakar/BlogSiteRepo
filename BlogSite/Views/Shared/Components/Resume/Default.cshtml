@@ -1,0 +1,59 @@
+﻿@model List<Entities.Models.Resume>
+<section id="resume" class="resume section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Özgeçmiş</h2>
+        <p>Eğitim ve İş Hayatındaki Adımlarım</p>
+    </div><!-- End Section Title -->
+    <div class="container">
+        <div class="row">
+            <!-- Eğitim Bölümü -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="resume-title">Eğitim</h3>
+                <div class="resume-item">
+                    <h4>Piri Reis Mesleki ve Teknik Anadolu Lisesi</h4>
+                    <p><em>Bölüm:</em> Bilişim Teknolojileri — Bilgisayar Teknik Servisi</p>
+                    <p><strong>Eğitim Süresi:</strong> 2015 – 2019</p>
+                </div>
+                <div class="resume-item">
+                    <h4>Mersin Üniversitesi</h4>
+                    <p><em>Bölüm:</em> Bilişim Sistemleri ve Teknolojileri</p>
+                    <p><strong>Derece:</strong> Lisans (4 Yıllık)</p>
+                    <p><strong>Eğitim Süresi:</strong> 2020 – 2024</p>
+                </div>
+                <div class="resume-item">
+                    <h4>İngilizce A1 Eğitimi</h4>
+                    <p><em>Milli Eğitim Bakanlığı Onaylı | Canlı Yüz Yüze Eğitim</em></p>
+                    <ul>
+                        <li><strong>Tarih:</strong> 29 Haziran 2024 – 3 Ekim 2024</li>
+                        <li><strong>Eğitim Süresi:</strong> 120 Saat</li>
+                    </ul>
+                </div>
+                <div class="resume-item">
+                    <h4>İngilizce A2 Eğitimi</h4>
+                    <p><em>T.C. Millî Eğitim Bakanlığı Onaylı | Canlı Yüz Yüze Eğitim</em></p>
+                    <ul>
+                        <li><strong>Tarih:</strong> 04 Ocak 2025 – 27 Nisan 2025</li>
+                        <li><strong>Eğitim Süresi:</strong> 160 Saat</li>
+                    </ul>
+                </div>
+
+            </div><!-- End Eğitim Bölümü -->
+            <!-- İş Deneyimi -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="resume-title">İş Deneyimi</h3>
+                @foreach (var item in Model)
+                {
+                    <div class="resume-item">
+                        <h4>@item.Uzmanlik</h4>
+                        <h5>@item.WorkRage</h5>
+                        <p><em>@item.Konum</em></p>
+                        <ul>
+                            <li>@item.Description</li>
+                        </ul>
+                    </div>
+                }
+            </div><!-- End İş Deneyimi -->
+        </div>
+    </div>
+</section><!-- End Resume Section -->

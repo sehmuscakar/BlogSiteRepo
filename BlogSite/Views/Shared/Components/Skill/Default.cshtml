@@ -1,0 +1,14 @@
+﻿@model List<Entities.Models.Skill>
+
+<div class="skills-content skills-animation">
+    <h5>Yetenekler</h5>
+      @foreach (var item in Model)
+        {
+    <div class="progress">
+        <span class="skill"><span>@item.Title</span> <i class="val">@item.Number%</i></span>
+        <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="@item.Number" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div><!-- End Skills Item -->
+        }
+</div>

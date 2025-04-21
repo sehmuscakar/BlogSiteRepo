@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Entities.DataTransferObjects.PortfolioListDto>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Portföy Liste Paneli</h3>
+<br />
+<p>
+    <a class="btn btn-outline-success" asp-action="Create">Yeni Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Birinci Resim")
+
+            </th>
+            <th>
+                @Html.DisplayName("İkinci Resim")
+
+            </th>
+            <th>
+                @Html.DisplayName("Üçüncü Resim")
+
+            </th>
+            <th>
+               @Html.DisplayName("Başlık")
+
+            </th>
+            <th>
+                @Html.DisplayName("Proje Yolu")
+
+            </th>
+            <th>
+                @Html.DisplayName("Açıklama")
+
+            </th>
+            <th>
+                @Html.DisplayName("Portföy Kategori")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    <img src="~/Img/@Html.DisplayFor(modelItem => item.Image1)" alt="" class="form control" height="50" />
+                </td>
+                <td>
+                    <img src="~/Img/@Html.DisplayFor(modelItem => item.Image2)" alt="" class="form control" height="50" />
+                </td>
+                <td>
+                    <img src="~/Img/@Html.DisplayFor(modelItem => item.Image3)" alt="" class="form control" height="50" />
+                </td>
+        
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.PortfolioCategoryName)
+            </td>
+            <td>
+                    <a class="btn btn-outline-danger" asp-action="Edit" asp-route-id="@item.Id">Güncelle</a>
+                    <hr>
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

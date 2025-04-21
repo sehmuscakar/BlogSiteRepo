@@ -1,0 +1,27 @@
+﻿@model List<Entities.DataTransferObjects.PortfolioListDto>
+<section id="portfolio" class="portfolio section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Portföy</h2>
+        <p>Teknoloji ve Yaratıcılığımı Birleştirerek Üzerinde Çalıştığım, Emek Verdiğim Proje Çalışmalarım</p>
+    </div><!-- End Section Title -->
+    <div class="container">
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+            @await Component.InvokeAsync("PortfolioCategory")
+            <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item @item.PortfolioCategoryName">
+                    <img src="~/Img/@item.Image1" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>@item.Title</h4>
+                        <p>@item.PortfolioCategoryName</p>
+                            <a href="~/Img/@item.Image1" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                            <a href="/Home/Portfolio/@item.Id" title="Detaya Git" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                    </div>
+                </div><!-- End Portfolio Item -->
+                }
+            </div><!-- End Portfolio Container -->
+        </div>
+    </div>
+</section><!-- /Portfolio Section -->
