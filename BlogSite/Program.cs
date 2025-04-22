@@ -13,7 +13,7 @@ builder.Services.AddControllersWithViews();
 //builder.Services.AddDbContext<ProjeContext>();
 builder.Services.AddDbContext<ProjeContext>(opt => //contextteki constractýr sýkýntý yaratýðý için diðer yöntemi kullandým.
 {
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("Local"));
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("Host"));
 });
 builder.Services.MyconfigureServices(); // Burada çağırıyoruz
 
