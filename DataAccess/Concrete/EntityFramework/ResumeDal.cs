@@ -10,7 +10,13 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class ResumeDal : EfEntityRepositoryBase<Resume, ProjeContext>, IResumeDal
+    public class ResumeDal : EfEntityRepositoryBase<Resume>, IResumeDal
     {
+        private ProjeContext Context { get; }
+
+        public ResumeDal(ProjeContext context) : base(context)
+        {
+            Context = context;
+        }
     }
 }

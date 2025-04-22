@@ -10,7 +10,13 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class ServiceDal : EfEntityRepositoryBase<Service, ProjeContext>, IServiceDal
+    public class ServiceDal : EfEntityRepositoryBase<Service>, IServiceDal
     {
+        private ProjeContext Context { get; }
+
+        public ServiceDal(ProjeContext context) : base(context)
+        {
+            Context = context;
+        }
     }
 }

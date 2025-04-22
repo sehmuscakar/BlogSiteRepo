@@ -28,26 +28,27 @@ namespace BlogSite.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> SignIn(LoginModel loginModel) // peek defination diyereek direk bu sayfanın içinden  o modelini dolduurabilirsin
+        public async Task<IActionResult> SignIn(LoginModel loginModel)
         {
-            if (!Regex.IsMatch(loginModel.Username, "^[a-zA-Z0-9_-]+$"))
+            if (string.IsNullOrEmpty(loginModel.Username) || !Regex.IsMatch(loginModel.Username, "^[a-zA-Z0-9_-]+$"))
             {
-                ModelState.AddModelError("UserName", "Geçersiz karakterler kullanıldı. Sadece harf, rakam, alt tire (_) ve tire (-) kullanabilirsiniz.");
-                ViewBag.ErrorMessage = "Kullanıcı Adı alanında geçersiz karakterler kullanıldı. Sadece harf, rakam, alt tire (_) ve tire (-) kullanabilirsiniz.";
+                ModelState.AddModelError("UserName", "Geçersiz karakterler kullanıldı.");
+                ViewBag.ErrorMessage = "Geçersiz karakterler kullandınız.";
                 return View();
             }
-            var result = await _signInManager.PasswordSignInAsync(loginModel.Username, loginModel.Password, true, true);//true,true ;1.ci true browser kapandıktan sonra sişfre hatırlansın mı
-                                                                                                                                //2.ci true ise accessfailedcount nin aktif olması yani kullanıcı her yanlış girdiğinde 1 artacak ve 5 olduğunda onu loglayacak engeleyece beli süre aralığında 20 dk ciivarı herhalde bilmiyorum tam 
+
+            var result = await _signInManager.PasswordSignInAsync(loginModel.Username, loginModel.Password, true, true);
+
             if (result.Succeeded)
             {
-                _userManager.FindByNameAsync(loginModel.Username);//kayıt olan username i bulur ,bu olmazsa appuser gti hep boş gelir ,bulamazmıyor çünkü,//kayıt olan username i bulur,burda 4 şeye göre bulur kayıt olan user 1.FindByIdAsync userıd ye göre
-
+                var user = await _userManager.FindByNameAsync(loginModel.Username);
                 return RedirectToAction("Index", "Profile");
             }
 
-
+            ViewBag.ErrorMessage = "Giriş başarısız. Lütfen kullanıcı adı veya şifreyi kontrol edin.";
             return View();
         }
+
 
         //public IActionResult Error404(int code)//program.cs te bu premtreeyi verdik
         //{

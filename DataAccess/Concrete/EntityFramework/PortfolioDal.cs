@@ -13,50 +13,50 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class PortfolioDal : EfEntityRepositoryBase<Portfolio, ProjeContext>, IPortfolioDal
+    public class PortfolioDal : EfEntityRepositoryBase<Portfolio>, IPortfolioDal
     {
-        public PortfolioListDto GetByIDDto(int id)
+        private readonly ProjeContext _context;
+
+        public PortfolioDal(ProjeContext context) : base(context)
         {
-            using (var context = new ProjeContext())
-            {
-                return context.Portfolios
-                    .Include(p => p.PortfolioCategory)
-                    .Where(p => p.Id == id)
-                    .Select(p => new PortfolioListDto
-                    {
-                        Id = p.Id,
-                        Title = p.Title,
-                        Description = p.Description,
-                        Image1 = p.Image1,
-                        Image2 = p.Image2,
-                        Image3 = p.Image3,
-                        PortfolioCategoryName = p.PortfolioCategory.Name
-                    })
-                    .SingleOrDefault();
-            }
+            _context = context;
         }
 
+        public PortfolioListDto GetByIDDto(int id)
+        {
+            return _context.Portfolios
+                .Include(p => p.PortfolioCategory)
+                .Where(p => p.Id == id)
+                .Select(p => new PortfolioListDto
+                {
+                    Id = p.Id,
+                    Title = p.Title,
+                    Description = p.Description,
+                    Image1 = p.Image1,
+                    Image2 = p.Image2,
+                    Image3 = p.Image3,
+                    PortfolioCategoryName = p.PortfolioCategory.Name
+                })
+                .SingleOrDefault();
+        }
 
         public List<PortfolioListDto> GetPortfolioList()
         {
-            using (var context = new ProjeContext())
-            {
-                var a = context.Portfolios.Select(portfolio => new PortfolioListDto()
+            return _context.Portfolios
+                .Include(p => p.PortfolioCategory) // Bu satırı ekledim, çünkü Name'e erişiyorsun
+                .Select(portfolio => new PortfolioListDto
                 {
                     Id = portfolio.Id,
                     Title = portfolio.Title,
                     Image1 = portfolio.Image1,
                     Image2 = portfolio.Image2,
                     Image3 = portfolio.Image3,
-                 
                     Description = portfolio.Description,
                     PortfolioCategoryName = portfolio.PortfolioCategory.Name,
-                ProjectUrl= portfolio.ProjectUrl,
-
-                });
-                return a.ToList();
-            }
-
+                    ProjectUrl = portfolio.ProjectUrl
+                })
+                .ToList();
         }
     }
+
 }

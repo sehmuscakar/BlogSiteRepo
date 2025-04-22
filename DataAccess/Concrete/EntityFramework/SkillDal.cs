@@ -10,7 +10,13 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class SkillDal : EfEntityRepositoryBase<Skill, ProjeContext>, ISkillDal
+    public class SkillDal : EfEntityRepositoryBase<Skill>, ISkillDal
     {
+        private ProjeContext Context { get; }
+
+        public SkillDal(ProjeContext context) : base(context)
+        {
+            Context = context;
+        }
     }
 }

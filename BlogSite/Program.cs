@@ -1,29 +1,34 @@
-using DataAccess.Concrete.EntityFramework.Context;
+ï»¿using DataAccess.Concrete.EntityFramework.Context;
 using Business.DependencyResolvers;
 using Entities.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.AspNetCore.Authentication.Cookies;  // Business katmanýný referans et
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;  // Business katmanÄ±nÄ± referans et
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ProjeContext>();
-builder.Services.MyconfigureServices(); // Burada çaðýrýyoruz
+//builder.Services.AddDbContext<ProjeContext>();
+builder.Services.AddDbContext<ProjeContext>(opt => //contextteki constractÃ½r sÃ½kÃ½ntÃ½ yaratÃ½Ã°Ã½ iÃ§in diÃ°er yÃ¶ntemi kullandÃ½m.
+{
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("Host"));
+});
+builder.Services.MyconfigureServices(); // Burada Ã§aÄŸÄ±rÄ±yoruz
 
 builder.Services.AddIdentity<AppUser, AppRole>()
 .AddEntityFrameworkStores<ProjeContext>()
-    .AddTokenProvider<DataProtectorTokenProvider<AppUser>>(TokenOptions.DefaultProvider);//hangi tablolarý özeleþtirmiþsen onlarý buraya tanýman lazým ýdentitye ile sisteme önemli 
-//þifre sýfýrlamada kullandýðýmýz için token buraya da ekiyoruz identityinin içine gerekli olaný 
-builder.Services.AddMvc(config =>//bu tüm sistemi kilitliyor kimlik doðrulama oladan açýlmaz eriþilemez
+    .AddTokenProvider<DataProtectorTokenProvider<AppUser>>(TokenOptions.DefaultProvider);//hangi tablolarÄ± Ã¶zeleÅŸtirmiÅŸsen onlarÄ± buraya tanÄ±man lazÄ±m Ä±dentitye ile sisteme Ã¶nemli 
+//ÅŸifre sÄ±fÄ±rlamada kullandÄ±ÄŸÄ±mÄ±z iÃ§in token buraya da ekiyoruz identityinin iÃ§ine gerekli olanÄ± 
+builder.Services.AddMvc(config =>//bu tÃ¼m sistemi kilitliyor kimlik doÄŸrulama oladan aÃ§Ä±lmaz eriÅŸilemez
 {
     var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
     config.Filters.Add(new AuthorizeFilter(policy));
 });
 
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x => //otonatike olmayan kýsmý buraya yunlendirecek bunu yapmadan da  [AllowAnonymous] bu kodu controllera yazarak ta yapabilirsin 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x => //otonatike olmayan kÄ±smÄ± buraya yunlendirecek bunu yapmadan da  [AllowAnonymous] bu kodu controllera yazarak ta yapabilirsin 
 {
     x.LoginPath = "/Admin/Login/SignIn";
 });
@@ -41,7 +46,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication(); // UseAuthorization'dan Ã¶nce olmalÄ±  // middleweiv // sunucuda bu olmazsa post hataÄ± alrÄ±sÄ±n sÃ¼rekli 
 app.UseAuthorization();
 
 app.MapControllerRoute(
